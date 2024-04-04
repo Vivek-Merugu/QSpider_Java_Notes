@@ -1,0 +1,150 @@
+Differences between method nd constructors
+------------------------------------------
+  Methods                                                 Constructors
+---------------------------------------------------------------------------------------
+1.Since we can't write business logic directly   1.Constructors are mainly used for initialising
+  in class we use methods                          non static variable
+
+2.Syntax:                                        2.Syntax:
+
+Accessmodifier NOnAccessModifier returntype        AccessModifier   Constructorname(args/noarggs)
+                       methodname(args/no args)    {
+{
+
+
+}                                                   }
+
+3.Method name can be anything(as per user)       3.Contructor name must be same as classname
+
+4.To execute a method we have to call it         4.Constructor will get called automatic
+  static-->Directly                               whenever we created an Object
+  Non static-->Object
+
+5.We can call one method from another           5.We can call one constructor from another
+   method directly or through objecct             constructor through constructor chaining
+
+6.Only Non static methods can be inherited      6.Constructors cannot be inherited
+
+7.Only Non static methods can be Overridden     7.Constructors cannot be overridden
+
+-------------------------------------------------------------------------------------------------
+Constructor Chaining
+---------------------
+-The Process of calling one constructor from another Constructor is called as Constructor
+ chaining
+
+-Constructor chaining can be achieved in two ways
+1.Call to this-------->represented as this()
+2.Call to Super------->represented as super()
+
+
+Call to this- this()
+----------------------
+-The process of calling one constructor from another constructor of same class is called
+  as call to this.
+
+-The main Rule for this() is -Call to this must be the First statement of a constructor.
+
+Program
+-------
+ class Add
+ {
+    public Add()
+    {
+      this(100,200);//call another const of same class which has 2 integer args
+      System.out.println("DEfault add constructor");
+    }
+    public Add(int i,int j)
+   {
+     this(223.5,10);//call another const of same class which has 2 args 1st is double 2nd is int
+     System.out.println("Result of int+int is:"+(i+j));
+     //this(223.5,10);//Here we will get CTE because call to this must be first statement of constrctor
+   }
+   public Add(double d,int i)
+   {
+     System.out.println("Result of double+int is:"+(d+i));
+   }
+   public static void main(String args[])
+   {
+     Add a1=new Add();
+
+   }
+}
+
+Output
+---------
+Result of double+int is:233.5
+Result of int+int is:300
+DEfault add constructor
+
+Q>Can i call more than one constructor from  constructor?
+A>No we cannot call more than one constructor from constructor because if we call we have to write 
+  call to this in 2nd statement which is violation of rule. 
+
+Ex: public Add()
+    {
+      this(100,200);//call another const of same class which has 2 integer args
+      this(223.4,50);//CTE becaue call to this must be first statment
+      System.out.println("DEfault add constructor");
+    }
+
+Call to super():
+----------------
+
+We will see after Inheritance because to study first we should have knowledge on inheritance
+
+
+UML Diagrams  or Class Diagram
+-------------------------------
+It is pictorial representation of an Application.
+
+-In Realtime a developer will always document the project by using UML diagram only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

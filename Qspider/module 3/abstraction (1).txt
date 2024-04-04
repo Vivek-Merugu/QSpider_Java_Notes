@@ -1,0 +1,335 @@
+Abstract +ion
+------------
+-It is the second pillar of OOPS concept.
+
+-The process of Hiding the internal implementation and Showing the necessary data 
+
+ to the end user is called as Abstraction.
+
+-In other words we can say that we are not going to show method implementation we will
+ just provide method header and method signature.
+
+Examples
+---------
+1.When we send an email,only a send button is vvisible but how it is being send 
+  is hidden
+
+2.Remote of Tv and Ac where we can operate it through buttons,but how it is being operated 
+  is hidden.
+
+3.Driver knows only to apply brakes and accelerate,but how it is working is hidden
+
+In JAVA abstraction can be achieved in two ways 
+1.using Abstract class
+2.using Interface
+Abstract class
+--------------
+-abstract is a keyword which indicates incompleteness.
+
+-abstract class is a class which contains atleast one abstract method.
+
+-Normal/Concrete/Complete method:If a method have method signature as wellas method body
+such method is called Complete or Concrete method.
+Ex:  public void run()
+     {
+         SOP("In run");
+      }
+      public void fly()
+      {
+       
+       }
+
+-Abstract /Incomplete method
+------------------------------
+-If a method contains only method signature but not method implementation is called as 
+ abstract or incomplete method.
+-Ex:public void run()
+    public void fly()
+
+
+
+
+-Abstract method has to be represented with abstract keyword and we have to add ; in the end of
+method declaration
+    Exx: abstract public void run();
+         abstarct public void fly();
+
+
+
+
+
+
+abstract class :A class which has atleast one abstract method.
+                Abstract class has to be represented with abstract keyword.
+----------------
+  abstract class Vehicle
+    {
+    abstract public void noOfWheels();
+
+    }
+
+-It is mandatory to mention the abstract keyword for abstract methods
+ and abstract classes.
+abstract class Fruit
+{
+	abstract public void taste();
+}
+
+abstract class Loans
+{
+	abstract public void type();
+	abstract public void rateOfInterest();
+}
+
+Can we create object of abstract class?
+A.No, wE cannot create an object of abstract class because it contains abstract methods and 
+  abstract method does not have any body to execute.
+
+public abstract class Vehicles 
+{
+   abstract  public void noOfWheels();
+   
+}
+
+class A
+{
+	Vehicles v1=new Vehicles();//Instantiation is not possible
+	v1.noOfWheels();
+}
+
+
+
+
+
+-If any child classes are there for abstract class that child class has to undergo 
+ with any of the one rule 
+ 
+1.Complete all incomplete methods of abstract class by means of overriding.
+
+
+2.Declare your class also as abstract class
+Program
+--------
+ abstract class Vehicles 
+{
+   abstract  public void noOfWheels();
+   
+}
+public class TwoWheeler extends Vehicles 
+{
+
+	@Override
+	public void noOfWheels()
+	{
+		System.out.println("Noof wheels are two");
+		
+	}
+	 public static void main(String args[])
+	 {
+		// Vehicles v1=new Vehicles();//not possible because abstract
+//class objects cannot be created//
+		 TwoWheeler e1=new TwoWheeler();
+		 e1.noOfWheels();
+		 
+	 }
+
+}
+
+-Abstract class can have complete as well as incomplete methods.
+
+-Abstract class can have static ,non static and final variables.
+
+Q)Can we define Constructor in abstract class?
+A.YES we can define a constructor in abstract class.
+abstract class Student
+{
+	String stdname;
+	int stdmarks;
+	public Student(String stdname,int stdmarks)
+	{
+		this.stdname=stdname;
+		this.stdmarks=stdmarks;
+	}
+}
+class Admin extends Student
+{
+	public Admin()
+	{
+		super("John",70);//call to super()
+	}
+}
+public class A {
+public static void main(String[] args) {
+	        //Student s=new Student();
+             Admin a1=new Admin();
+             System.out.println(a1.stdname+" "+a1.stdmarks);
+	}}
+
+
+
+Q)Can we declare the class as abstract class even though it does not conatins 
+   abstract methods?
+
+A)Yes,we can create the class as abstract even though it doesn't conatins
+  abstract method.
+  In 3 cases
+
+1.if all the members of class are static memebers then to access them we do not
+  have to create a object we can call directly or through class name.
+   abstract class A
+   {  static int i=100;
+       main()
+       {
+           SOP("In main");
+           SOP(i);
+           run();
+      }
+      p s v run(){
+            SOP("In run");
+}}
+
+
+2.In general we never create an object of super class we can declare super class as 
+   abstract class.
+       abstract class A
+       {}
+        class B extends A
+        {
+         
+       }
+
+3.If you don't want anyone to create object of ur class u can simply declare it as 
+  abstract (refer student example).
+Q>Can we declare abstract class as final
+A>NO we cannot declare a abstract class as final because if it is final it 
+cannot be extended or inherited
+Q>Can we declare abstract method as final
+A>NO we cannot declare an abstract method as final because if it is final it 
+cannot be overridden and we must have to override abstract method to complete it
+
+Q>Can we declare abstract method as static?
+
+A>NO we cannot declare an abstract method as static because if it is static it 
+cannot be overridden and we must have to override abstract method to complete it
+
+Q>Can we achieve multiple inheritance through abstract class?
+A.No we cannot achieve MI through abstract class because an one class 
+  cannot extend more than one abstract class.
+
+ConclusioN
+------------
+Since Abstract class contains complete as well as incomplete methods .
+we can able to achieve partial abstraction i.e 0 to 100 % abstraction.
+-Therefore to achieve 100% abstraction we go for interface
+Therefore to achieve 100% abstraction we will go for interface.
+
+INTERFACE
+----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

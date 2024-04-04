@@ -1,0 +1,221 @@
+GENERALISATION AND SPECIALISATION
+----------------------------------
+METHOD DEF       run()              run(int i)      run(char ch,int i)    run(Employee s)
+
+-------------------------------------------------------------------------------------------
+
+METHOD CALL     run()               run(100)        run('A',600)         run(new Employee())
+
+
+Specialisation
+----------------
+-The process of developing a method which handles only one type of object  such methods are called
+as special methods and process is called as specialisation
+
+Example
+-------
+public class genRspec {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		dogdetails(new Dog());
+	    catdetails(new Cat());
+       }
+	public static void dogdetails(Dog d)//Dog d=new Dog()
+	{
+		d.eat();d.makesound();
+	}
+	public static void catdetails(Cat c)//Cat c=new Cat()
+	{
+		c.eat();c.makesound();
+	}
+}
+interface Animal
+{
+	void eat();
+	void makesound();
+}
+class Dog implements Animal
+{
+	public void eat() {
+	System.out.println("Dog eats biscuits");
+		
+	}
+	public void makesound() {
+	      System.out.println("Bow Bow Boww");	
+	}}
+class Cat implements Animal
+{	public void eat() {
+		System.out.println("cat eats chicken");
+	}
+	public void makesound() {
+		System.out.println("meow meow meow");
+	}
+	}
+-The main disadvantage of specialisation is methods will handle one one type 
+  of object.
+-For an  instance in above example if we add Monkey class we need to add another
+method which handles monkey object
+       public static void monkeydetails(Monkey m)
+        {
+           m.eat();
+           m.makesound();
+        }
+
+-Therefore to overcome this probleum we go for generalisation.
+
+GENERALISATION
+----------------
+-The process of developing a method which can handles any type of object,
+ is called as general method and this process is known as generalisation.
+Ex:
+interface Animal
+{
+	void eat();
+	void makesound();
+}
+class Dog implements Animal
+{
+	public void eat() {
+	System.out.println("Dog eats biscuits");
+		
+	}
+	public void makesound() {
+	      System.out.println("Bow Bow Boww");	
+	}}
+class Cat implements Animal
+{
+
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		System.out.println("cat eats chicken");
+	}
+
+	@Override
+	public void makesound() {
+		// TODO Auto-generated method stub
+		System.out.println("meow meow meow");
+	}}
+class Monkey implements Animal
+{
+
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		System.out.println("Monkey eat bananas");
+	}
+
+	@Override
+	public void makesound() {
+		// TODO Auto-generated method stub
+		System.out.println("wowowowoow");
+	}
+	
+}
+public class genRspec {
+
+	public static void main(String[] args) {
+		animaldetails(new Dog());
+	    animaldetails(new Cat());
+	    animaldetails(new Monkey());
+       }
+	public static void animaldetails(Animal a)//Animal a=new Dog()
+	{                                         //Animal a=new Cat()
+		a.eat();                          //Animal a=new Monkey()
+		a.makesound();
+	}
+	
+}
+ public class genRspec {
+
+	public static void main(String[] args) {
+		animaldetails(new Dog());
+		animaldetails(new Animal());
+       }
+	public static void animaldetails(Animal a)//Animal a=new Dog()
+	{                                     
+		if(a instanceof Animal)
+		{
+			a.eat();
+		    a.makesound();
+		}
+		else if(a instanceof Dog)
+		{
+			Dog d1=(Dog)a;
+			d1.eat();
+			d1.makesound();
+		}
+	}
+	
+}
+class Animal
+{
+	public void eat()
+	{
+		System.out.println("Animal eats");
+	}
+	public void makesound()
+	{
+		System.out.println("Different animals make diff sounds");
+	}
+}
+class Dog extends Animal
+{
+	public void eat() {
+	System.out.println("Dog eats biscuits");
+		
+	}
+	public void makesound() {
+	      System.out.println("Bow Bow Boww");	
+	}}
+
+Conclusion
+-------------
+-So Runtime Polymorphism is a combination of Method Overriding ,Upcasting 
+  and generalisation.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+
+
+
+
+
+

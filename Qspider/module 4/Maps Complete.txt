@@ -1,0 +1,196 @@
+MAP INTERFACE
+-----------------
+-MAP IS AN INTERFACE WHICH STORES THE OBJECTS AS A KEY VALUE PAIR.
+-EACH KEY,VALUE PAIR IS CALLED AS ENTRY.
+-SO MAP IS ALSO REFERRED AS COLLECTION OF ENTRY OBJECTS
+-WHENEVER WE WANT TO REPRESENTS OBJECTS AS KEY VALUE PAIR WE GO FOR MAPS.
+
+-MAP INTERFACE IS IMPLEMENTED BY 3 DIFFERENT CLASSES
+ 1.HASHMAP
+ 2.LINKEDHASHMAP
+ 3.TREEMAP
+
+Useful methods are:
+----------------------
+put(k,V):Used to add objects as key value pair into MAp
+keyset():Returns all key's available in MAp
+values():Returns all values available in MAp.
+containsKey(key)  and containsValue(value):
+checks key and value is present or not respectively.
+HashMap
+---------
+-HashMap is a class which implements Map interface.
+Features
+---------
+-introduced in 1.2v
+-heterogenous data allowed
+-Data structure is hashtable
+-duplicate keys are not allowed but values can be duplicate
+-random order based on hashcode
+-only one null key is allowed and multiple null values are allowed.
+HashTable
+-----------
+-It is a datastructure(like an Array) which stores the objects as key value pair
+  by means of HAshing.
+ -DEfault size of hashtable is 11
+ -once hashtable reaches the 3/4th of default size it size will be doubled i.e 22.
+
+  refer analogy shown in paint.
+
+Program
+---------
+package maps.demo;
+import java.util.*;
+public class HAshmapdemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       HashMap<Integer,String> m1=new HashMap<>();
+       m1.put(101,"Rahul");
+       m1.put(102,"Riya");
+       m1.put(103,"Pooja");
+      // m1.put("334",445);
+     System.out.println(m1);//{101=Rahul.........
+       System.out.println(m1.keySet());//[101,102,103]
+       System.out.println(m1.values());//[Rahul,Riya,pooja]
+       System.out.println( m1.get(101));//Rahul
+       System.out.println(m1.get(334));//null
+       System.out.println(m1.containsKey(1002));
+       System.out.println(m1.containsValue("Java"));
+       m1.put(101,"Sanju");
+       m1.put(103,"Pooja1.0");
+       System.out.println("After adding duplicate keys"+m1);
+       m1.put(null,"Pooja2.0");
+       System.out.println(m1);
+       m1.put(null,"Pooja3.0");
+       System.out.println(m1);
+}
+}
+Output
+-------
+{101=Rahul, 102=Riya, 103=Pooja}
+[101, 102, 103]
+[Rahul, Riya, Pooja]
+Rahul
+null
+false
+false
+After adding duplicate keys{101=Sanju, 102=Riya, 103=Pooja1.0}
+{null=Pooja2.0, 101=Sanju, 102=Riya, 103=Pooja1.0}
+{null=Pooja3.0, 101=Sanju, 102=Riya, 103=Pooja1.0}
+
+LinkedHashMap
+---------------
+-LinkedHashMap is a class which extends HashMap and implements Map interface.
+Features
+---------
+-introduced in 1.4v
+-heterogenous data allowed
+-Data structure is hashtable
+-duplicate keys are not allowed but values can be duplicate,if we add duplicate key it
+  replaces with original one.
+-As per Insertion order
+-only one null key is allowed and multiple null values are allowed.
+
+//Only difference is output is as per insertion order//
+Program
+--------
+package maps.demo;
+import java.util.*;
+public class Linkmapdemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       LinkedHashMap<Integer,String> m1=new LinkedHashMap<>();
+       m1.put(388,"Rahul");
+       m1.put(1,"Riya");
+       m1.put(103,"Pooja");
+      // m1.put("334",445);
+     System.out.println(m1);//{101=Rahul.........
+       System.out.println(m1.keySet());//[101,102,103]
+       System.out.println(m1.values());//[Rahul,Riya,pooja]
+       System.out.println( m1.get(101));//Rahul
+       System.out.println(m1.get(334));//null
+       System.out.println(m1.containsKey(1002));
+       System.out.println(m1.containsValue("Java"));
+       m1.put(101,"Sanju");
+       m1.put(103,"Pooja1.0");
+       System.out.println("After adding duplicate keys"+m1);
+       m1.put(null,"Pooja2.0");
+       System.out.println(m1);
+       m1.put(null,"Pooja3.0");
+       System.out.println(m1);
+}
+}
+Output
+-------
+{388=Rahul, 1=Riya, 103=Pooja}
+[388, 1, 103]
+[Rahul, Riya, Pooja]
+null
+null
+false
+false
+After adding duplicate keys{388=Rahul, 1=Riya, 103=Pooja1.0, 101=Sanju}
+{388=Rahul, 1=Riya, 103=Pooja1.0, 101=Sanju, null=Pooja2.0}
+{388=Rahul, 1=Riya, 103=Pooja1.0, 101=Sanju, null=Pooja3.0}
+
+
+TreeMap
+---------
+-TreeMap is a class which implements Map interface.
+Features
+---------
+-introduced in 1.2v
+-only homogenous data allowed ,if we add heterogeneous objects will get class cast exception
+-Data structure is Tree
+-duplicate keys are not allowed but values can be duplicate
+-sorting order.
+-Null keys are not allowed.
+
+Ex:TreeMap m1=new Treemap();
+   m1.put(101,"India");
+   m1.put(null,"ggg");//NullPointerExcepion 
+
+Program
+-------
+package maps.demo;
+import java.util.*;
+public class Treemapdemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       TreeMap<Integer,String> m1=new TreeMap<>();
+       m1.put(101,"Rahul");
+       m1.put(102,"Riya");
+       m1.put(103,"Pooja");
+      // m1.put("334",445);
+     System.out.println(m1);//{101=Rahul.........
+       System.out.println(m1.keySet());//[101,102,103]
+       System.out.println(m1.values());//[Rahul,Riya,pooja]
+       System.out.println( m1.get(101));//Rahul
+       System.out.println(m1.get(334));//null
+       System.out.println(m1.containsKey(1002));
+       System.out.println(m1.containsValue("Java"));
+       m1.put(101,"Sanju");
+       m1.put(103,"Pooja1.0");
+       System.out.println("After adding duplicate keys"+m1);
+       m1.put(null,"Pooja2.0");
+       System.out.println(m1);
+       m1.put(null,"Pooja3.0");
+       System.out.println(m1);
+}
+}
+Output:
+--------
+{101=Rahul, 102=Riya, 103=Pooja}
+[101, 102, 103]
+[Rahul, Riya, Pooja]
+Rahul
+null
+false
+false
+After adding duplicate keys{101=Sanju, 102=Riya, 103=Pooja1.0}
+Exception in thread "main" java.lang.NullPointerException
+	at java.util.TreeMap.put(Unknown Source)
+	at maps.demo.HAshmapdemo.main(HAshmapdemo.java:22)

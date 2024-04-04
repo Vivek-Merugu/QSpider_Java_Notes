@@ -1,0 +1,1066 @@
+
+ at amairab299@gmail.com right now
+   601-986-243
+EXCEPTION HANDLING
+-------------------
+-EXCEPTION?
+-HIERARCHY OF EXCEPTION
+-TYPES OF EXCEPTION(DIFF CLASSES IN EXCEPTION)
+-KEYWORDS OF EXP
+ try,catch,throw,throws and finally
+-diff btw throw and throws
+-**diff btw final,finally,finalise
+-***user define exception or customised exception
+
+Am ia audible??
+
+
+Exception:
+-----------
+-An Exception is an unwanted or unexpected condition which disturbs our normal
+ flow of execution.
+
+Ex:1.CoronaException
+   2.lockDownException
+   3.BatterydeadException
+    
+-Once Exception occurred remaining part of program will not be executed.
+
+-So it is our responsibility to handle the exception.
+
+-Exception handling doesn't means we are resolving an exception it is
+ just like providing an alternate solution so that even though exception happens
+ our program should work properly. 
+
+Exception Hierarchy:-
+--------------------
+-Object class is a super class to all the predefine and userdefine class of java
+
+-Throwable class is a super class to "Exception" class and "Error" class and it is present in
+  java.lang package
+
+-Exception class is a super class to RuntimeExceptionclass and other Exception
+ classes.
+
+-Depending on Hierarchy Exceptions are divided into 2 types
+ 1.Checked Exception 
+ 2.Unchecked Exception
+
+CHECKED EXCEPTION
+--------------------
+-Exceptions which are checked during compile time by compiler such type of exceptions 
+ are called as Checked Exceptions.
+                        OR
+
+-Exception classes which are directly inheriting Exceptionclass Except 
+RuntimeExceptionclass is called as checked exception
+-Checked Exceptions are also called as Compile time Exception
+-In case of checked exception our program will not even compile
+
+-Examples(Classes) of checked Exceptions are:
+---------------------------------------------
+-InterruptedException
+-ClassNotFoundException
+-SQLException
+-FileNotFoundException
+
+UNCHECKED EXCEPTION
+-------------------
+-Exceptions which are checked during Runtime time such type of exceptions are 
+called as Unchecked Exception.
+
+-Incase of Unchecked Exception our program will atleast compiles successfully.
+-Unchecked Exceptions are also called as runtime exceptions.
+-RunTimeExceptionclass is a super class to all uncheckedException classes.
+
+-Examples(Classes) of Unchecked Exceptions are:
+---------------------------------------------
+-ArithmeticException
+-ArrayIndexOutOfBoundsException
+-NullPointerException
+-StringIndexOutOfBoundsException
+-ClassCastException.
+-NumberFormatException
+Error:
+------
+-An Error is an irrecoverable Condition i.e if error occurred it is 
+ not under programmers control to get over it.
+-For Ex: if we develop any program whose size is 4gb but our system's storage
+         is 3gb so such condition is not in programmers control and such situation
+         is refer as Error.
+
+-Examples(Classes) of Error are:
+--------------------------------
+-StackoverFlowError
+-VirtualMemoryError
+-404pagenotfound
+
+**Differences between Exception and Error
+----------------------------------------
+       Error                                Exception
+----------------------------------------------------------------------
+1.An error is caused due to                1.An exception is caused 
+  lack of system resources                   because of some probleum in code
+
+2.An error is irrecoverable i.e            2.An Exception is recoverable
+  An Error is a critical condition           i.e we can have some alternate
+  cannot be handled by code of               code to handle exception
+  program
+
+3.There is no ways to handle error         3.We can handle exception by means
+                                              of try and catch block
+
+4.As error is detected  program is         4.As Exception is occurred it can be
+  terminated abnormally                      thrown and caught by catch block
+
+5.There is no classification               5.Exceptions are classified as
+   for Error                                 checked and unchecked
+
+6.Errors are define in java.lang.Error     6.Exceptions are define in  
+  package                                    java.lang.Exception package 
+
+What happens when an Exception occurred?
+----------------------------------------
+class Sample
+{
+
+  public static void div()
+  {
+      int a=10,b=0,c;
+      c=a/b;//10/0
+      System.out.println(c);
+  }
+  public static void main(String args[])
+
+  {
+      div();
+  }
+}
+In above program execution begins from main method and it calls to div()
+-in div() there is an unexpected statement i.e c=10/0  when this 
+ statement is encountered div() creates an Exception object whichincludes
+     NAME:
+     description:
+     location:
+and handover it to JVM,Now JVM will checks is there any exception handling
+code present in div() since there is no exception handling code present in div()
+it checks with caller method in above program i.e main().So it checks in main()
+is there any exception handling code present or not.Since there is no
+exception handling code present in main() also JVM will calls to default
+Exception handler i.e printStackTrace()(method) and that default exception
+handler provides the complete information of Exception.
+
+i.e is  Exception Occurred in thread main "java.lang.ArithmeticException:/ by Zero"
+             at Sample.div(Sample.java:7)
+        at Sample.main(Sample.java:13)
+So if we want the above program to be executed we have to handle the Exception
+-Exception can be handled by using try and catch block.
+try and catch blocks
+---------------------
+try 
+{
+
+  //risky statements which cause exception//
+
+}
+catch(Exceptionname refvar)
+{
+  //Alternate sol
+
+}
+
+-try block is used to keep a code which causes an exception.
+-Once Exception occurred in try block remaining part of code will not be executed
+  so we should keep only statements which causes exception under try block.
+-Once exception occurred in try block JVM is immediately make a search for corresponding
+ catch block.
+-Catch block is where we will caught the exception.
+-Under catch block we provide some statements which works as alternate solution
+ for Exception
+
+Q.Can we write any statement between try and catch block?
+A.No we cannot write any statement between try and catch block.Immediately after
+  try block there should be catch or finally block.
+q.Can we write only try block without catch block?
+A.No  a try block should always followed by either catch or finally block.
+Q.if we don't know exception type ,what type should we mention in catch block?
+A.When we do not know Exception type we can mention it as ExceptionClass type.
+  because Exception is a super class to all the class and during upcasting we studied that
+  superclass can hold refernce of subclass object.
+        Ex:  Exception e=new ArithmeticException()
+Ex:
+class Sample
+{
+  public static void main(String args[])
+{       int a=10,b=0,c;
+      try
+      {
+       //put a code which causes exception//
+      c=a/b;//An exception object gets created by main() and handover to JVM
+      System.out.println("Under try block");//Unexecuted statement
+      }
+      catch(Exception e)//e is reference which holds ArithmeticExp object
+      {
+           System.out.println("Exception is being noticed");
+      }
+  }
+}
+Note:
+-Single program can have multiple risky statements i.e one try block
+ can have multiple exception statement.
+-In that case only one Exception will get caught because one try block can define
+  one one exception at a time.
+-If we want to handle multiple exceptions it is always recommended to
+  define separate try and catch blocks.
+class Sample
+{
+  public static void main(String args[])
+{
+       int a=10,b=0,c;
+       int d[]=new int[3];
+        try
+        {
+        d[3]=55;//beyond declared size so an exception object gets created
+         c=a/b;//unexecuted
+       }
+       catch(ArithmeticException e)      {
+           System.out.println("Exception is caught");
+ }
+       catch(ArrayIndexOutOfBoundsException f)
+       {
+           System.out.println("Exception caught for array");
+
+        }         
+      }
+}
+Output:
+------------
+Exception caught for array
+
+
+-THe above program is always recommended to write in below way
+  class Sample
+{
+  public static void main(String args[])
+  {
+       int a=10,b=0,c;
+       int d[]=new int[3];//d[0],d[1],d[2]>d[3]....
+        try
+        {
+         d[3]=55;//beyond declared size
+        }
+       catch(ArrayIndexOutOfBoundsException f)
+       {
+           System.out.println("Exception caught for array");
+
+        }
+     try{
+          c=a/b;
+          }
+       catch(ArithmeticException e)      {
+           System.out.println("Exception is caught");
+
+        }
+Output:
+-------
+Exception Caught for array
+Exception is caught
+Single try with multiple Catch blocks
+---------------------------------------
+-Yes it is allowed to write single try with multiple catch blocks but it should 
+ be most specific to most general.
+class Sample
+{
+  public static void main(String args[])
+  {
+       int a=10,b=0,c;
+       int d[]=new int[3];
+        try
+        {
+          d[3]=55;//beyond declared size
+        }
+//most specific catch block
+catch(ArrayIndexOutOfBoundsException f)//AIOBE f=new AIOBE()
+       {
+           System.out.println("Exception caught for array");
+}
+//general catch block
+        catch(Exception e)  //Exception e=new AIOBE()
+       {
+           System.out.println("Exception is caught");
+
+        }
+-In the above program there is ArrayIndexOutOfBounsException occurred and if we have writtenmultiple
+ catch blocks we always have to write specific catch block i.e catch block which
+ contains AIOUBException reference first then we can write general catchblock means catch block 
+ which have Exception class reference .
+
+-For the above program we cannot define catch blocks as most general to 
+  most specific if we did we will get compile time error.
+
+   //general catch block
+        catch(Exception e)  //Exception e=new AIOBE()
+       {
+           System.out.println("Exception is caught");
+
+        }
+//most specific catch block
+catch(ArrayIndexOutOfBoundsException f)//AIOBE f=new AIOBE()
+       {
+           System.out.println("Exception caught for array");
+}
+we will get error as
+
+ exception ArrayIndexOutOfBoundsException has already been caught
+       catch(ArrayIndexOutOfBoundsException f)//AIOBE f=new AIOBE()
+       ^
+finally block
+-------------
+-finally is a block which will get exceuted irrespective of 
+case-1.exception did not occurred
+         int d[]=new int[3];
+        try
+        {
+          d[2]=55;
+         }
+       catch(ArrayIndexOutOfBoundsException f)//AIOBE f=new AIOBE()
+       {
+           System.out.println("Exception caught for array");
+      }
+    finally
+    {
+  System.out.println("Finally block");
+        }
+
+}Output: Finally block
+
+case-2.exception occurred and handled
+
+       int d[]=new int[3];
+        try
+        {
+          d[3]=55;//beyond declared size
+         }
+       catch(ArrayIndexOutOfBoundsException f)//AIOBE f=new AIOBE()
+       {
+           System.out.println("Exception caught for array");
+      }
+    finally
+    {
+  System.out.println("Finally block");
+        }
+
+}Output:  Exception caught for array
+          fINAlly block
+case-3.exception occurred and not handled
+class Sample
+{
+  public static void main(String args[])
+{
+       int a=10,b=0,c;
+       int d[]=new int[3];
+        try
+        {
+          d[3]=55;//beyond declared size
+         }
+       
+    finally
+    {
+  System.out.println("Finally block");
+        }
+
+}}
+output
+It is finally block
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
+        at Sample.main(Sample.java:9)
+
+-Basically it is used to keep an important code which should not be skip
+ like closing of data base connection or closing of opened file etc.
+-following combinations are valid for try,catch and finally block
+
+-1.try
+  {
+
+  }
+ catch()
+ {}
+
+2.try
+  {}
+  finally
+  {}
+
+3.try
+  {}
+  catch{}
+  finally{}
+
+THROWS KEYWORD
+--------------
+-Example of checked Exception
+class Test
+{
+public static void main(String args[])
+{
+  System.out.println("Go to sleep");
+  Thread.sleep(1000);
+  System.out.println("AWake"); 
+}}
+
+-In the above program we have called sleep() of Thread class.
+-Means we are making current thread i.e main thread to go in sleeping state
+ which means main() should stop execution once sleep() is invoked for given amount of time i.e 
+1000ms.
+-But when it is in sleeping state there will be a chance of other threads trying
+ to interrupt main thread from sleping.
+-So thats is why for above program we will get Exception as 
+
+Test.java:6: 
+error: unreported exception InterruptedException; 
+must be caught or declared to be thrown 
+
+i.e there is a chance of Exception to occur which we didn't reported.
+
+-So it is our responsibility to report that exception by means of try,catch
+or throws.
+
+Conclusion:
+In case of checked Exception user have 2 options
+1.Caught the exception:use try and catch block
+2.Declare the exception:use throws keyword
+
+-Throws keyword is used to declare an checked Exception.
+-Throws keyword is used with method declaration
+   public void fly() throws ExceptionName
+-When we use throws keyword we are indicating that current method will not handle exception
+ rather calling method or its caller will handle the exception
+ class Test
+{
+public static void main(String args[]) throws InterruptedException
+{
+  System.out.println("Go to sleep");
+  Thread.sleep(1000);
+  System.out.println("AWake"); 
+}}
+
+Output
+-------
+Go to sleep
+--wait for one sec---
+Awake
+
+-in the above program main method is declared an Exception using throws keyword
+that means it is telling that i won't handle exception rather it is responsibility
+ of my caller to handle it.so in above program the caller of main() is JVM
+
+
+ExceptionPropogation
+--------------------
+-The process where exception is passed from one method to another method this 
+  process is known as Exception Propogation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Test
+{
+public static void main(String args[]) throws Exception 
+{
+  System.out.println("main thread");
+  
+  a1();
+  
+ System.out.println("catch block");
+}
+public static void a1() throws InterruptedException
+{
+ 
+Thread.sleep(1000);
+  System.out.println(" a1  AWake");
+  a2();
+}
+public static void a2() throws InterruptedException
+{
+Thread.sleep(1000);
+System.out.println(" a2  AWake");
+}
+}
+
+In the program a2() is telling that i won't handle exception i will declare it ad itis 
+my caller i.e a1  should handle it.
+a1() is telling that i won't handle exception i will declare it ad itis 
+my caller i.e main()  should handle it.
+-So this process where exception is passed from one method to another method this 
+  process is known as Exception Propagation.
+
+throw keyword
+--------------
+class Demo
+{
+public static void main(String args[])
+{
+  System.out.println(10/0);
+}
+}
+
+-In above program main methods creates an exception object and handover it to JVM 
+ since there is no exception handling code JVM will handover that object to
+ default exception handler and it prints exception message as
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at Demo.main(Demo.java:5)
+
+
+-But if we want we can create our own exception object by using throw keyword.
+
+-Throw keyword is used to explictly creating an exception object.
+
+   syntax:   throw new Exceptiontype(description of exception);
+
+-throw keyword is mainly used for userdefine exceptions.
+
+for ex:
+class Demo
+{
+public static void main(String args[])
+{
+  throw new ArithmeticException("My Exception");
+}
+}
+Exception in thread "main" java.lang.ArithmeticException: My Exception
+        at Demo.main(Demo.java:5)
+
+Note:
+------
+-Once we throw the exception object explictly we should not give anyprinting statement
+ furthur after that statement,if we give we will get compile time error as 
+  "Unreachable statement"
+ class Ad
+{
+public static void main(String args[])
+{
+  throw new ArithmeticException("My own Exception Occured");
+  System.out.println("Something");//Unreachable statement
+}
+}
+
+
+
+
+
+
+
+
+Example
+-------
+class Demo
+{
+public static void check(int age)
+{
+     if(age<18)
+     {
+       throw new ArithmeticException("He is small kid enjoying life");
+      }
+     else {
+       System.out.println("Cast a Vote");
+}
+}
+public static void main(String args[])
+{
+  check(15);
+}
+}
+Output
+-------
+C:\Docs\programs>java Demo
+Exception in thread "main" java.lang.ArithmeticException: He is small kid enjoying life
+        at Demo.check(Demo.java:7)
+        at Demo.main(Demo.java:15)
+
+
+
+-In the Above Example if we throw CheckedException type or Exception type
+it is must to caught the exception or declare to be thrown.
+-Because Checked exceptions must have to be handled.
+
+First Way
+---------
+class Ad
+{
+public static void check(int age) throws Exception
+{
+     if(age<18)
+     {
+       throw new Exception("He is small kid enjoying life");
+      }
+     else {
+       System.out.println("Go out with gf and destroy life");
+}
+}
+public static void main(String args[]) throws Exception 
+{
+    check(15);
+}}
+-In above program there is an checkedException Occurred in check() so we have declared it 
+now it is responsibility of main() to handle it.
+-But main() is also declare it and pass on to JVM and JVM will handover it to
+ defaault exception handler.
+Output:
+--------
+
+Exception in thread "main" java.lang.Exception: He is small kid enjoying life
+        at Ad.check(Ad.java:7)
+        at Ad.main(Ad.java:15)
+Second Way
+----------
+class Ad
+{
+public static void check(int age) throws Exception
+{
+     if(age<18)
+     {
+       throw new Exception("He is small kid enjoying life");
+      }
+     else {
+       System.out.println("Go out with gf and destroy life");
+}
+}
+public static void main(String args[]) 
+{
+    try{
+    check(15);
+}
+catch(Exception e)
+{
+ System.out.println("Exception caught");
+}}}
+Output
+-------
+Exception caught
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+User define Exception or Customised Exception
+--------------------------------------------------
+-When predefine exceptions are not fulfills our requirement we will go for 
+ user define exception i.e we can create our exceptions.
+-such types of exceptions is called as User define Exceptions or Customised 
+ Exceptions.
+Rules for Creating User define Exception
+------------------------------------------
+-Create our Exception class and that class should be extending
+ either Throwable or Exception or Runtime Exception classes.
+(preferable to extend RunTimeException).
+-Define constructor wherever requires.
+-Throw exception as per our own requirement.
+Example:
+--------
+class NotEligibleException extends RuntimeException
+{
+    String msg;
+    public NotEligibleException(String msg)
+    {
+     System.out.println(msg);
+    }
+}
+class User
+{
+public static void main(String args[])
+   {
+       float percentage=55.5f;
+       if(percentage<60.0)
+       {
+throw new NotEligibleException("Not Eligible for interview because ur percentage is "+percentage);
+      }
+       else{
+             System.out.println("Registered before 5th of MAy");
+}}}
+Explnation
+-------------
+Execution started from main method ,under that i gave a condition if that condition
+satisfied i am creating an Explict exception object with details as 
+    name:NotEligibleException
+    desc:Not Eligible for interview because ur percentage is
+    location:User.main
+-Once Exception objects created it calls to NotEligibleException Constructor and pass
+ msg as argument.
+-Under that constructor we print msg so it prints information
+-includes   Packagename.classname:Exceptiondetails
+             location
+
+
+
+
+USER DEFINE Exception-2
+---------------------
+class AgeGapException extends RuntimeException
+{
+public AgeGapException(String msg)
+{
+System.out.println(msg);
+}}
+public class Demo
+{
+public static void main(String args[])
+{
+      int bage=10,gage=27;
+     if(bage<15 && gage>=27)
+     {
+       throw new AgeGapException("He is small kid enjoying life");
+      }
+     else {
+       System.out.println("Go out with gf and destroy life");
+}
+}
+output
+-------
+Exception in thread "main" AgeGapException: He is small kid enjoying life
+	at helper.Demo.main(Demo.java:16)
+
+Explnation
+-------------
+Execution started from main method ,under that i gave a condition if that condition
+satisfied i am creating an Explict exception object with details as 
+    name:AgeGapException
+    desc:He is small kid enjoying lige
+    location:Demo.main
+
+-Once Exception objects created it calls to AgeGapException Constructor and pass
+ msg as argument.
+
+Assignment Program
+--------------------
+Create an userdefine Exception class as MinBalException inherit RunTimeException
+-define Constructor 
+
+Create class
+-define main()
+-create object of scanner class(to take inputs)
+-Input 1--->double---->amtDeposit
+-Input 2---->double/int--->amtWithdrawl
+ -check condition if(amtWithdrawl>amtdeposit||amtwithdrawl==amtdeposit)
+  throw new MinBalException("Balance Exceeds because ur current bal : "+amtdeposit)
+
+else
+print message as "Collect ur amount"
+
+
+
+
+
+
+
+Program
+----------
+import java.util.Scanner;
+public class Sample {
+public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		double amtdeposit=s.nextDouble();
+		System.out.println("Available balance in accoount: "+amtdeposit);
+		double amtWit=s.nextDouble();
+                
+		if(amtWit>amtdeposit||amtWit==amtdeposit)
+		{
+throw new MinBalException("Ur Exceeds limit becuase current bal is"+amtdeposit);
+		}
+		else {
+			System.out.println("Please collect ur amount");
+	             }
+        
+      }
+	class MinBalException extends RuntimeException
+	{
+		public MinBalException(String msg)
+		{
+			System.out.println(msg);
+		}
+	}
+C:\Docs\programs>java Sample
+44
+Available balance in accoount: 44.0
+55
+Caught the exception
+
+DIFFERENCES BETWEEN THROW AND THROWS
+-------------------------------------
+     THROW                                           THROWS
+--------------------------------------------------------------------------------------------
+-THROW KEYWORD IS USED TO                    -IT IS USED TO DECLARE THE EXCEPTION
+ CREATE EXCEPTION OBJECT
+ EXPLICTLY
+
+-THROW KEYWORD IS USED INSIDE                -THROWS KEYWORD IS USED WITH METHOD
+ METHOD.                                       DECLARATION
+
+EX:throw new Exceptionname(Expdescription)    Ex: method declaration throws Exceptionname
+   throw new ArithmeticException("exception");    public void fly() throws InterruptedException
+
+-THROW KEYWORD IS MAINLY USED                 -THROWS KEYWORD IS MAINLY USED FOR CHECKED 
+ FOR Userdefine exception                           EXCEPTION
+
+-USING THROW KEYWORD WE CAN THROW             -USING THROWS KEYWORD WE CAN DECLARE MULTIPLE 
+ ONLY ONE EXCEPTION AT A TIME                   EXCEPTIONS AT A TIME.
+
+-throw new MinBalException("zero");           -pv check() throws  InterruptedException,
+                                                SQLException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

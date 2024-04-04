@@ -1,0 +1,254 @@
+INTERFACE
+----------
+Prog dEf:
+---------
+An interface is a type definition block(Block of codes) whose type convention is same as that of
+ class.
+   interface Animal
+    {
+       void eat();
+       void makenoise();
+       void color();
+       void species();
+     }
+-TECH DEFINITION:
+------------------
+-from client point of view an interface is defined  as set of services what his expecting from
+ client
+ -from service provider point of view an interface is defined as set of services he offered.
+-Therefore interface is contract between Client and service provider.
+       interface ATM
+       {
+           void withdrawl();
+           void deoposit();
+           void mst();
+         ...........
+        }
+-An interface has to be represented with interface keyword.
+
+
+-By default all the methods of interface are public and abstract whether we write or don't 
+write
+
+        interface A                                      interface A
+         {                                               {
+             void run();                                    public abstract void run();
+             public void fly(); <---------------->          public abstract void fly();
+             abstract public void cry();                    public abstract void cry();
+                                                         }
+            }
+
+-By default all the variables of interface are public static and final whether u write it
+or u don't write it
+
+              interface A
+              {
+                 int i=9;      //public static final int i=9;
+                 static String s="java";//public static final Sring s="java";
+                 final int k=88;//public static final int k=88;
+                 public static final float fq=99.9f;}
+
+ Example
+--------              
+-interface A
+  {
+      int i;//public static final
+      System.out.println(i);
+    }
+-CTE because all var's are final and it's mandatory to initialise final during declaration.
+
+
+
+-Constructors are not allowed in interface because there is no non static variable by default all
+ variables are public static and final.
+                 interface A
+                 {
+                    int abc=3;
+                    public A()//CTE because constructors are not allowed
+                   {}
+                   }
+
+                    
+Can we instantiate an interface?
+OR
+-Can we create an object of interface?
+A>No we cannot create an object of interface because all methods are by default abstract.
+   but we can create a reference of interface.
+
+
+
+-implements
+-----------
+implements is the keyword we will use if any class wants to form a relationship
+with interface.
+
+      interface Car
+      { }
+      class Audi implements Car
+       {}
+
+class --------class------------->extends
+interface-----interface--------->extends
+class----------interface------->implements
+interface -------class----->Not possible
+
+-A class can extend only one class at a time
+-An interface can extend multiple interfaces at a time
+-A class can implement multiple interface at a time
+
+
+
+
+
+
+-Whenever any class forms a relation with interface it is the responsibility of that class
+ to 
+
+-Either complete all incomplete methods of interface
+
+-OR declare the class as abstract.
+
+
+
+
+
+
+
+
+Multiple Inheritance through Interface
+-------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+interface A1
+{
+	void m1();
+}
+interface B
+{
+	void m2();
+	}
+class C implements A1,B
+{public void m2() {
+		System.out.println("In m1 method");
+	}
+	public void m1() {
+		System.out.println("In m2 method");
+	}}
+public class Main {
+public static void main(String[] args) {
+	C c1=new C();
+	c1.m1();
+	c1.m2();
+-Ambiguity p   -diamond p   -Constructor chaining p
+Why Multiple inheritance is possible through interface?
+A.In interafce there is no possibility of Ambiguity probleum because even though 
+  multiple interfaces contains same method name but implementation will be given only
+  once because in interface class gives implementation and it won't implement multiple
+  methods with same name and same argument in single class
+
+Ex:interface A1
+{
+	void m1();
+}
+interface B
+{
+	void m1();
+	}
+class C implements A1,B
+{
+	public void m1() {
+		System.out.println("In m1 method");
+	}}
+public class Main {
+public static void main(String[] args) {
+	C c1=new C();
+	c1.m1();}}
+
+-Since interface does not contain Constructors there is no possibility of 
+ Constructor chaining in interface.
+
+
+-Therefore when there is no ambiguity probleum and constructor chaining probleum 
+  we can achieve multiple inheritance through interface.
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

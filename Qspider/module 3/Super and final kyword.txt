@@ -1,0 +1,335 @@
+super keyword
+--------------
+-It is used to call super class Instance members(non static var's and non static methods).
+-It is used in sub class non static methods.
+Example
+----------
+class A
+{
+   String s="Super-class variable";//global-nonstatic
+  public void m1()
+  {
+    System.out.println("This is m1() of A class");
+  }
+}
+class B extends A
+{
+  public void m1()
+  {
+    System.out.println("This is m1() of B class");
+  }
+  public void m2()
+  {
+   String s="m2()-local variable";//local var
+   System.out.println("This is m2() of B-class");
+   super.m1();//call to m1()
+   System.out.println(super.s);
+  }
+}
+class User1
+{
+  public static void main(String args[])
+  {
+    B b1=new B();
+    b1.m2();
+}}
+Output
+--------
+C:\Docs\programs>java User1
+This is m2() of B-class
+This is m1() of A class
+Super-class variable
+Ex.2
+-------
+class A
+{
+	int i=100;
+	public  void m1()
+	{
+		System.out.println("This is an m1-method of A-class");
+	}
+}
+class B extends A
+{
+	public void m1()
+	{
+		System.out.println("This is an m1-method of B-class");
+	}
+	public void m2()
+	{
+		int i=200;
+		System.out.println("This is an m2-method of B=class");
+		super.m1();
+       System.out.println(super.i);
+	}
+}
+class C extends B
+{
+	public void m3()
+	{
+		super.m1();
+	}
+}
+public class Sample {
+public static void main(String[] args) {
+    B b1=new B();
+    b1.m2();
+     C c1=new C();
+     c1.m3();
+	}
+
+}
+Output
+------------
+This is an m2-method of B=class
+This is an m1-method of A-class
+100
+This is an m1-method of B-class
+
+Differences between 
+
+A>       this keyword                                     super keyword
+----------------------------------------------------------------------------------------
+-this keyword indicates the current              -super keyword is used to call super class
+ object under execution                                     instance members
+-this can be used inside methods                  -super is used in subclass non static methods
+ and constructors
+-For using this keyword inheritance is           -For using super inheritance is required
+ not required
+
+
+B.      call to this                                          call to super
+-------------------------------------------------------------------------------------------------------------------------------
+-It is used to call one constructor from   -It is used to call super class construtor from 
+ another constructor of same class          sub class
+
+-For achieving call to this inheritence     -For achieving super() inheritance is must
+  is not required
+
+-this() is Explict in nature                -super() is implict as well as Explict in nature
+----------------------------------------------------------------------------------------------------------------------------
+Assignment
+----------
+Diff between this and call to this
+Diff between super and call to super
+
+Final Keyword
+-----------------
+-final is a keyword which basically indicates that there is no more changes are allowed.
+ Gen Ex:
+--------
+final match
+final result
+final destination
+
+-final keyword is applicable with 
+1.methods
+2.variables(Local and Global)
+3.class
+
+final with variable:
+----------------------
+-If a variable is declared as "final"  we cannot reinitialise the value.
+  Ex: final int score=100;
+      score=300;//Re-initialisation--->not allowed coz score is final
+
+possible combination of final variable:
+---------------------------------------
+final static int i=100;//final with static var
+final String m="fail";//final with non static var
+m(){
+final char gender='M';//final with local var
+} 
+
+Example:
+------------
+class A
+{
+  final String maritalstatus="Married";
+  public static void main(String args[])
+  {
+     A a1=new A();
+     a1.maritalstatus="Single";//CTE coz final cannot be reinitialise
+     System.out.println(a1.maritalstatus);
+}}
+
+
+Error
+------
+C:\Docs\programs>javac A.java
+A.java:8: error: cannot assign a value to final variable maritalstatus
+          a1.maritalstatus="Single";//CTE coz final cannot be reinitialise
+            ^
+1 error
+
+-It is mandatory to initialise final variable while declaration,if we did not initialise
+ we will get compile time error.
+public class FinalDemo {
+
+	final String maritalstatus;//cte
+	public static void main(String[] args) {
+		FinalDemo a=new FinalDemo();
+		 System.out.println(a.maritalstatus);
+
+	}
+
+}
+Error:
+-------
+The blank final field maritalstatus may not have been initialized.
+
+Differences between final and static
+----------------------------------------
+    static                                       final
+----------------------------------------------------------------------------------------
+-static means single copy                      -final means fixed copy
+-it is not mandatory to initialise              -It is mandatory to initialise final
+ static while declaration                         while declaration
+-static var can be reinitialise                -final var cannot be reinitialise
+-A class cannot be static                      -A class canbe final
+-static keyword is applicable                  -final is applicable with methods,var
+ with method,variables,blocks                    and classes
+ and nested class.   
+Ex: static String clg="Qspiders";              Ex: final float pie=3.414f;
+
+-------------------------------------------------------------------------------------------------
+
+final with class
+-------------------
+-if a class is declared as final we cannot inherit or extends that class.
+-so therefore a superclass can never be final.
+
+final class University
+{
+    public void results()
+    {
+
+    }
+}
+class Student extends University//CTE
+{
+
+
+}
+
+C:\Docs\programs>javac X.java
+X.java:8: error: cannot inherit from final University
+class Student extends University//CTE
+                      ^
+1 error
+
+-But a final class can extends Non final class i.e subclass can be final but super class
+ cannot be final.
+
+ Ex:  class Central
+   {
+      public void lockdown()
+      {
+
+      }}
+  final class Telangana extends Central
+  {
+
+   }
+
+-The Above program is perfectly Correct because here super is non final but sub class
+ is final so Final class can inherit non final class.
+-But again,Class Telengana cannot be extended by other class because it is final
+
+final with methods
+--------------------
+-If a method is declared as final we cannot override it.
+-final keyword says that do not made furthur changes and in overriding we are changing
+ the implementation therefore final methods cannot be overridden.
+
+Ex: class Flipkart
+    {
+       public final void logo()
+       {
+         System.out.println("Flipkart's Logo");
+       }
+    }
+    class Myntra extends Flipkart
+    {
+       public final void logo()
+       {
+        System.out.println("Myntra's logo");
+       }
+     }
+
+C:\Docs\programs>javac X.java
+X.java:10: error: logo() in Myntra cannot override logo() in Flipkart
+       public final void logo()
+                         ^
+  overridden method is final
+1 error
+
+Q.Will final methods get inherited?
+A. Yes,final methods will get inherited but only thing is they cannot be overridden.
+
+Q.Can a constructor be final?
+A.No a constructor cannot be final because final keyword is applicable only for 
+  class,methods and final not with constructors.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

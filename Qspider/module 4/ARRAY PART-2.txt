@@ -1,0 +1,122 @@
+1.wap to find second highest
+  input : 22 3 55 6 99 2
+  output : 55
+package ArrayProg;
+public class Seconghighest {
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[]= {10,23,3,45,5};
+		int max=a[0],secm=a[0];
+		for(int i=1;i<a.length;i++)
+		{
+			if(a[i]>max)//a[1]>10-->23>10//a[2]>max-->3>23//a[3]>23--.45>23
+			{             //a[4]>45-->5>45
+				secm=max;//secmax=10//secmax=23
+				max=a[i];//max=23//max=45
+			}
+			else if( a[i]>secm)//a[2]>10-->3>10//a[4]>23-->5>23
+			{
+				secm=a[i];
+			}
+		}
+		System.out.println("Maximimum value from an array is : "+max);//45
+		System.out.println("Second Maximimum value from an array is : "+secm);//23
+
+	}
+
+}
+
+2.wap to find second lowest
+
+3.WAP to find all missing nuumbers from 1 to 100
+   from an array {22,17,4,66,8,2,87}
+package ArrayProg;
+public class Missing {
+	public static void main(String[] args) {
+		boolean status=true;
+		int a[]= {33,1,66,3,99};
+		for(int j=1;j<=100;j++)
+		{
+		for(int i=0;i<a.length;i++) {
+			     if(j==a[i])//1==33//1==1
+				{           //2==33//2==1//2==66//2==3//2==99
+			    	        //3==33//3==1//3==66//3==3
+					status=false;
+					break;
+				}
+		}
+		if(status==true)//number is not present
+		{
+			System.out.print(j+"  ");//2
+		}
+       status=true;//for everynum status should be true
+}}}
+
+PASSING AN ARRAY AS A METHOD ARGUMENTS
+-----------------------------------------
+//Passing an array as an argument to a method
+package ArrayProg;
+public class Student {
+	String name;int age;float per;
+	public Student(String name,int age,float per)
+	{
+		this.name=name;
+		this.age=age;
+		this.per=per;
+	}
+	public static void main(String[] args) {
+       Student std[]=new Student[3];//i created an student array
+		std[0]=new Student( "john",23,66.5f);
+		std[1]=new Student("Rohan",23,77.5f);
+		std[2]=new Student("Riya",21,77.9f);
+		details(std);//call details method and pass array as argumnets
+	}
+	public static void details(Student sarray[])//Student sarray[]=new Student[3];
+    {
+		System.out.println("NAME  Age Percentage");
+    	for(Student s1:sarray)
+    	{
+    		System.out.println(s1.name +" "+s1.age+" "+s1.per);
+    	}
+    }
+}
+Assignment
+------------
+1.WAP to find prime numbers from an array given below
+  a[]={13,4,56,32,99,11}
+
+professional Assignment
+-----------------------
+1.WAP to take an array from user and find count
+  of particular number
+  Ex: input {2,3,3,4,6,3}
+      output : Count of 3 is -->3
+
+2.WAP to find common numbers from 2 arrays
+   ip1:{10,22,3,55,6,89}
+   ip2:{55,22,67,5}
+   output :55,22
+
+3.Wap which reads no of student and grades as input(btw 0 to 20)
+  and display average,minimum,maximum 
+  Note :You should keep all all grades in an array.
+  Note :For each operation u need to perform it using methods
+         stdAverage(),stdMin(),stdMin()
+  expected output
+------------------
+ no of students 4
+ grade-1:86
+ grade-2:65
+ grade-3:98            
+ grade-4:77
+
+average---->81.50
+minimum---->65
+maximum---->98
+
+
+
+
+
+
+

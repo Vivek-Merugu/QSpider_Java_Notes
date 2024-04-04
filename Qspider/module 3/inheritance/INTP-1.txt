@@ -1,0 +1,397 @@
+OOPS(Module-3)
+-----------------
+-class and Object
+-Inheritance(IS-A)
+-Has-A
+-call to super
+-method overriding
+-super keyword
+-Abstraction
+-Interface
+-Encapsulation
+-Polymorphism
+-TYpe and Object Casting
+
+Object Oriented Programming system:It is an programming methodology which fulfills
+                                   the project requirement.
+
+-class and Object :-
+------------------
+-A class is a logic Entity (Because it represents logic of APP).
+-An Object is physical Entity(Because it contains memory).
+-A class is a blue print or template using which we can develop code of APP
+-An Object is an Entity which gets created using class and it  represents the state and behaviours
+-Where state indicates variables(datamembers) and behaviour indicates methods(member function)
+
+Ex:  class Student
+     {
+       //develop code/logic for Student APP
+      
+     }
+       Student-Object
+      
+      states     Behaviours
+-------------------------------
+      name       studying()
+      age        writingexams()
+      height     playing()
+      weight     etc
+      marks
+      contact
+      etc
+Ex2:Dog
+Ex3:Car
+Ex4:Employee
+***IMp
+-Differences between class and Object
+------------------------------------------
+    class                                Object
+--------------------------------------------------
+-A class is logical entity          -An Objects is physical entity
+
+-class represents logic             -Object represents state and behaviour
+
+-class can be created using          -Object can be created using new keyword
+ class keyword
+
+-When class is created,Memory will   -When Object gets created memory will be allocated (Heap)
+ not be allocated
+
+-For each module we can create one   -For one class we can create multiple Objects.
+  class
+------------------------------------------------------------------------------------------------------
+-Points to remember
+--------------------
+-In a program we can have multiple classes when we Compile a program depends on no of classes
+ we define those many .class files will be generated.
+  ex:
+          class A
+          class B 
+          class user
+          {  main()}
+ -Afer compilation:  A.class
+                     B.class 
+                     user.class
+
+-As per convention Above program we should save as user.java because it contains main()
+
+-When we have multiple class in single program we can keep only one class as public
+ and we should keep main method class as  public and save filename with that particular class name
+         class A
+          class B 
+         public class user
+          {  
+           main()
+           }
+         save as User.java
+When we have multiple class in single program  and all of them contains main methods
+ and we should keep only one  class as  public and save filename with that particular class name
+  and execute individually
+         class A
+         {  
+           main()
+           }
+          class B 
+          {  
+           main()
+           }
+         public class C
+          {  
+           main()
+           }
+        save as C.java
+        execute as java A
+                   java B
+                   java C
+-Bussiness logic class->which does not have main()
+-User logic class-> which contains main().
+
+
+Inheritance Or IS-A relationship
+-------------------------------------
+-It is the First Pillar of OOPS.
+-Inherit means Acquire,posses,access,take etc
+-DEf:One class Acquiring the properties of another class is called as Inheritance.
+                  OR
+     One class is Accessing the properties of another class is called as Inheritance.
+-Here properties is defined as methods and variables.
+
+extends keyword
+--------------
+-extends is a keyword which indicates that we are creating a new class from an existing class.
+
+        class A//superclass or parentclass or base class
+        {}
+        class B  extends A//B is called as subclass or childclass or deriveclass
+        {}
+-SUper class and Sub class
+------------------------------
+-THe class whose properties are acquired is called as super class or parent class or Base class.
+-THe class Who is acquiring the properties is called as child class or Sub class or derive class
+       
+       class Superclass
+       {
+ 
+        }
+       class  Subclass extends Super class
+        {
+
+        }
+
+-Super class contains its own properties 
+-Sub class contains its own properties as well as properties of super class.
+
+            WithoutInheritance                   With Inheritance
+-------------------------------------------------------------------------------------
+        Ex:   class Father                        class Father
+             {                                    {
+                gold()                              gold()
+                land()                              land()
+                money()                             money()
+                car()                               car()
+             }                                    }
+             class Son                            class Son extends Father
+             {                                    {
+              gold()                               girlfriends() 
+              land()
+              money()                             }
+              car()
+              girlfriend()
+             }
+
+Note:
+-----
+-Only non static methods can be inherited ,static methods cannot be inherited because they will
+ get loaded only once in static pool area.
+-Constructors cannot  be inherited beacuse they are not a member of class they are just
+ use to initialise a non static variable.
+-if we create Object of super class we can access only super class methods
+-if we create object of sub class we can access both super and subclass properties.
+
+TYPES OF INHERITANCE
+----------------------
+1.SINGLE LEVEL
+2.MULTI LEVEL
+3.HIERARCHICAL
+4.MULTIPLE
+5.HYBRID
+
+
+
+
+
+
+
+
+
+
+
+Single level
+-------------
+class Bank
+{
+   String Accname="Rohan";
+   int acno=89898989;
+   public void details()
+   {
+      System.out.println("Acc name:"+Accname+"\n Accno :"+acno);
+   }
+}
+class Deposit extends Bank
+{
+   double bal=100;
+   public void depamt()
+   {
+      System.out.println("Dposit amt"+bal);
+   }
+}
+public class Cust
+{
+  public static void main(String args[])
+  {
+    Deposit d1=new Deposit();
+    d1.details();
+    d1.depamt();
+}
+}
+def:
+one super class
+one sub class
+
+
+
+
+Multi-level Inheritance
+------------------------
+class Bank
+{
+   String Accname="Rohan";
+   int acno=89898989;
+   public void details()
+   {
+      System.out.println("Acc name:"+Accname+"\n Accno :"+acno);
+   }
+}
+class Deposit extends Bank
+{
+   double bal=100;
+   public void depamt()
+   {
+      System.out.println("Dposit amt"+bal);
+   }
+}
+class Withdrawl extends Deposit
+{
+   double amt=200;
+   public void withamt()
+  {
+    if(amt>bal)
+    {
+       System.out.println("You cannot withdrawl-balance exceeds");
+  }
+  else{
+    System.out.println("Collect Amount");
+}
+}}
+public class Cust
+{
+  public static void main(String args[])
+  {
+    Withdrawl d1=new Withdrawl();
+    d1.details();
+    d1.depamt();
+    d1.withamt();
+}
+}
+
+def:
+Two super classes
+Two sub classes
+
+Hierarchical Inheritance
+------------------------
+class Bank
+{
+   String Accname="Rohan";
+   int acno=89898989;
+   double avabal=100;
+   public void details()
+   {
+      System.out.println("Acc name:"+Accname+"\n Accno :"+acno);
+   }
+}
+class Deposit extends Bank
+{
+   double depamt=100;
+   public void depamt()
+   {
+      System.out.println("Dposit amt"+depamt);
+      avabal=avabal+depamt;
+      System.out.println("Total Ava bal is:"+avabal);
+   }
+}
+class Withdrawl extends Bank
+{
+   double amt=100;
+   public void withamt()
+  {
+    if(amt>avabal)//avabal=100
+    {
+       System.out.println("You cannot withdrawl-balance exceeds");
+  }
+  else{
+    System.out.println("Collect Amount");
+}
+}}
+public class Cust
+{
+  public static void main(String args[])
+  {
+    System.out.println("Deposit process");
+    Deposit s1=new Deposit();
+    s1.details();
+    s1.depamt();
+    System.out.println("Withdrawl Process");
+    Withdrawl d1=new Withdrawl();
+    d1.details();
+    d1.withamt();
+}
+}
+Output
+------
+C:\Docs\programs>java Cust
+Acc name:Rohan
+Accno :89898989
+Dposit amt100.0
+Total Ava bal is:200.0
+Acc name:Rohan
+Accno :89898989
+Collect Amount
+
+def:
+----
+one super class
+two subclasses
+
+Multiple Inheritance :-
+---------------------
+-Multiple inheritance is One class is inheriting two immediate super classes at the same time
+ 
+-But in java a class can extends only one class at a time
+
+-So Multiple inheritance is not possible through classes because of-
+
+1.Ambiguity probleum
+2.Constructor chaining probleum.
+
+-If one class extends two classes and in case if both classes contains same method 
+ than while calling a method JVM will get confuse which class method to call this probleum
+   is known as Ambiguity probleum.
+
+
+
+-Constructor chaining probleum  
+---------------------------------
+Q>Can we inherit Constructors or not?
+A.No we cannot inherit constructors because they are not member of a class(MEm of classs are
+  methods and variables) and constructors are mainly used for intialistion of NSvariable.
+  -Constructors cannot be inherited but they can be invoke by using call to super.
+-Call to super
+---------------
+-The process of calling one contructor from another constructor of different class is called as 
+ call to super.
+-Call to super must be the first statement in constructor
+
+Call to super
+---------------------
+Example
+--------
+class A
+{
+   public A(int i)
+   {
+    System.out.println("A class default constructor");
+   }
+}
+
+class B extends A
+{
+   public B()
+   {
+    super(100);//Explictly we added
+    System.out.println("B class DEfault Constructor");
+    }
+}
+public class Main
+{
+  public static void main(String args[])
+  {
+    B b1=new B();
+  }
+}
+
+Output
+--------
+C:\Docs\programs>java Main
+A class default constructor
+B class DEfault Constructor

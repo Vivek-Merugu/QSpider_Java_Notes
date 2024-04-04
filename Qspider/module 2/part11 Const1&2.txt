@@ -1,0 +1,314 @@
+
+Notes
+---------
+CONSTRUCTORS
+--------------
+Need of Constructor
+---------------------
+-Non static variables plays a special role in every program 
+i.e non static refers
+ to multiple copies which means that for 
+every object there is a separate
+ memory allocated for non static variable,
+which means programmer can initialise
+ everytime new value to non static variable.
+For Example
+-------------
+ class Student
+{
+  String name;//name=null
+ public static void main(String args[])
+ {
+   Student s1=new Student();
+   s1.name="John";
+   System.out.println(s1.name);
+   Student s2=new Student();
+   s2.name="Rohan";
+   System.out.println(s2.name);
+   Student s3=new Student();
+   System.out.println(s3.name);
+}}
+
+-In above program name value is not initialised so it is name=null.
+-if we want to initialise it we have to do manually initialise value for every object
+  which is a lengthy approach and chances are there that programmer may forget to initialise
+-Therefore to initialise a non static variable, a special characteristics concept
+ is given as constructor.
+
+Definition
+-----------
+-Constructor is a special type of method which gets executed whenever we created an 
+ object.
+-The main purpose of constructor is to initialise a non static variable.
+
+Syntax:    AccessModifier constructorname(arg/no args)
+           {
+              //body of constructor
+           }
+
+Rules for defining constructor
+------------------------------
+-Constructor can be public,private,protected or default.
+
+-Constructor cannot be static,non static ,final or abstract.
+
+-Constructor name must be same as that of classname.
+
+-Constructor does not have any return type not even void 
+
+-Constructor can be with arguments or  without args.
+
+Types of Constructors:-
+----------------------
+2 types
+1.No argument Constructor
+2.Parameterized Constructor
+
+No argument Constructor
+------------------------
+-If a constructor does not have any argument it is called as No argument constructor
+
+class Student
+{
+  String name;
+  //define constructor
+   public Student()
+   {
+     name="John";
+   }
+ public static void main(String args[])
+ {
+   Student s1=new Student();
+   System.out.println(s1.name);
+   Student s2=new Student();
+   System.out.println(s2.name);
+   Student s3=new Student();
+   System.out.println(s3.name);
+   
+ }
+}
+Output
+-------
+John
+John
+John
+
+Ex.2-->
+class Dog                                     class Book                 class Car
+{                                             {                          {
+ String name;                                    String bookname;          String carname;
+ //@constructor                                  int bookprice;            int price
+    public Dog()                                  //Complete program}      String color;
+    {                                                                      int capacity
+      name="Tommy";                                                        //complete program
+    }
+ public static void main(String args[])
+ {
+   Dog f=new Dog();
+   System.out.println(f.name);//Tommy
+   Dog f1=new Dog();
+   System.out.println(f1.name);//Tommy
+ }}
+
+-One of the drawbacks of no argument constructors is it provides same value for 
+ every object.
+-Therefore to overcome this drawback we go for parameterized constructor.
+parameterised Constrctor
+------------------------
+-If a constructor contains any arguments it is called as parameterised constructor.
+-While creating Object we have to pass particular argument as constructor.
+program
+--------
+class Student
+  {
+    String name;
+     int age;
+    //parameterized constructor
+     public Student(String sname,int sage )
+     {
+       name=sname;
+       age=sage;
+     }
+    public static void main(String args[])
+    {
+   Student s1=new Student("John",22);
+   System.out.println(s1.name+" "+s1.age);
+   Student s2=new Student("Rohan",24);
+   System.out.println(s2.name+" "+s2.age);
+   Student s3=new Student("Rahul",23);
+   System.out.println(s3.name+" "+s3.age);
+   }
+ }
+C:\Myfolder>java Student
+John 22
+Rohan 24
+Rahul 23
+
+Example-2
+-----------
+class Dog
+{
+ String name;
+ String color;
+ //@ parameterised constructor
+  public Dog(String dname,String dcolor)
+  {
+    //initialise
+      name=dname;
+      color=dcolor;
+  }
+ public static void main(String args[])
+ {
+   Dog f=new Dog("Tommy","Black");
+   System.out.println("First dog name is :"+f.name+"Color is :"+f.color);
+   Dog f1=new Dog("Softy","White");
+   System.out.println("Second dog name is:"+f1.name+"Color is:"+f1.color);
+    Dog f2=new Dog("fluffy","Ash");
+   System.out.println("Third dog name is:"+f2.name+"Color is:"+f2.color);
+}}
+
+Output
+-------
+C:\Myfolder>java Dog
+First dog name is :TommyColor is :Black
+Second dog name is:SoftyColor is:White
+Third dog name is:fluffyColor is:Ash
+
+
+
+C:\Docs\programs\Kccm4>java Dog
+First dog name is :Tommy Color is :Black
+Second dog name is:Softy Color is:White
+Third dog name is:fluffy Color is:Ash
+
+2.program
+---------
+Q.Create an employee APP 
+step-1 define instance members as
+ employeename
+ employeeid 
+ employeesalary
+ employeedesignation
+step-2: define nonstatic display() to print above details
+step-3: define main()
+        3.1 create an object1 pass 4 args and calls display() on that object
+        3.2 create an object2 pass 4 args and calls display() on that object                            
+        3.3 create an object3 pass 4 args and calls display() on that object
+
+
+
+
+
+
+
+Solution
+--------
+class Employee
+{
+ String name,desg;
+ int id,sal;
+ //@constructor
+  public Employee(String ename,String desg,int id,int sal)
+  {
+    //initialise
+     name=name;
+      this.desg=desg;
+      this.id=id;
+      this.sal=sal;
+  }
+  //@defining display()
+   public void display()
+   {
+      System.out.println("Name :"+name);
+     System.out.println("Designation :"+desg);
+    System.out.println("Their ID :"+id);
+   System.out.println("Sal per month is :"+sal);
+   }
+ public static void main(String args[])
+ {
+   Employee e1=new Employee("John","QA",1234,20000);
+   e1.display();
+   Employee e2=new Employee("Rahul","QA",1235,20000);
+   e2.display();
+ 
+}}
+
+C:\Docs\programs>java Employee
+Name :John
+Designation :QA
+Their ID :1234
+Sal per month is :20000
+Name :Rahul
+Designation :QA
+Their ID :1235
+Sal per month is :20000
+practise Prograam
+--------------------
+Create a APP for Book which have instance members as
+ bookname
+ bookprice
+ bookpages
+ bookauthor
+ bookpublisher
+
+and print the details of 3 books
+
+Define display method(non static) to print info and call it on all 3 objects.
+
+Note:-
+------
+-Standard way is to use a different names for non static variable
+ and constructor arguments.
+-But In case if we use Same name for both,JVM will not able to differentiate
+ and did not initialises value properly so when non static variable
+ is not initialise we will get default value as output.
+
+-In order to overcome this drawback we use this keyword.
+
+this Keyword:-
+-------------
+-this keyword indicates current object under execution.
+-It is used when we keep same name for Constructor/method argument
+ and non static variable.
+Example-1
+----------
+
+class Employee
+{
+ String name,desg;
+ int id,sal;
+ //@constructor
+  public Employee(String name,String desg,int id,int sal)
+  {
+    //initialise
+     this.name=name;//currentobject.name=name
+      this.desg=desg;//currentobject.desg=desg
+      this.id=id;//currentobject.id=id
+      this.sal=sal;//currentobject.sal=sal
+  }
+  //@defining display()
+   public void display()
+   {
+      System.out.println("Name :"+name);
+     System.out.println("Designation :"+desg);
+    System.out.println("Their ID :"+id);
+   System.out.println("Sal per month is :"+sal);
+   }
+ public static void main(String args[])
+ {
+   Employee e1=new Employee("John","QA",1234,20000);
+   e1.display();
+   Employee e2=new Employee("Rahul","QA",1235,20000);
+   e2.display();
+  }}
+
+C:\Docs\programs>java Employee
+Name :John
+Designation :QA
+Their ID :1234
+Sal per month is :20000
+Name :Rahul
+Designation :QA
+Their ID :1235
+Sal per month is :20000
+

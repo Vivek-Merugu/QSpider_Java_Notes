@@ -1,0 +1,353 @@
+Method overriding:
+------------------
+-During inheritance subclass has complete previlige to change the implementation 
+of super class this process is known as method overriding.
+
+-During method overriding method call will depend on run time object(class)
+
+
+Rules for Methodoverriding
+---------------------------
+1.Inheritance is mandatory
+
+2.Subclass and super class method signature must be same.
+
+3.return type must be same.
+
+4.Accessmodifiers must be same.
+
+5.super class method should not be final.
+
+When do we go for method overriding?
+A.We go for method overriding when we want to change the implementation
+   of superclass as per our requirement.
+Ex:Changing ringtone for particular contact is an example of overriding
+Ex:putting a whatsapp group on mute is an example of overriding.
+
+
+-We cannot override static method because static cannot be inherited.
+
+-We cannot override main method because main cannot be inherited as it is static
+
+-we cannot override private method because its scope is with in class and 
+private cannot be inherited.
+
+super keyword:
+-------------
+-It is used to call super class instance members(super class non static methods
+  and non static variables).
+
+-we use super keyword when we want to call super class even after ,overriding 
+  occurred.
+program
+--------
+public class User {
+public static void main(String[] args) {
+		SBH s1=new SBH();//it will call SBH rateofinterest()
+		s1.intrateSBI();
+		}}
+class SBI
+{
+	public void rateOfInterest()
+	{
+		System.out.println("7.5%");
+	}
+}
+class SBH extends SBI
+{
+	public void rateOfInterest()
+	{
+		System.out.println("8.5%");
+	
+	}
+	public void intrateSBI()
+	{
+		//rateOfInterest();
+		this.rateOfInterest();
+		super.rateOfInterest();
+	}
+
+Difference between call to super and super keyword
+---------------------------------------------------
+         call to super                        super keyword
+---------------------------------------------------------------------------
+1.it is used to call super              1.it is used to call super class 
+  class constructor from                  instance members from subclass
+  sub class constructor
+2.super() must be first statement       2.super keyword need not to be first
+   in constructor                         statement.
+
+3.super() is implict(added byJVM) as well 3.super keyword is explict in nature.
+as explict(has to be added by programmer)
+
+
+Difference between call to this and this keyword
+---------------------------------------------------
+  this()                                       this keyword
+------------------------------------------------------------
+1.call to this is used to call         1.this keyword is used to indicate curremt
+  one constructor fromm another          object under execution
+  constructor of same class
+
+2.this() must be first statement       2.this keyword can be any statement
+  of constructor
+3.this() can e used only once          3/this keyword can be used multiple
+ in a constructor                       times in constructor.
+
+
+Final keyword
+---------------
+-final is a keyword which indicates no more changes are allowed.
+-if we don't want data to be changed we can use final keyword.
+
+-final keyword is applicable with
+1. variable
+2.class
+3.method
+
+final with variable
+--------------------
+-if a variable is declared as final we cannot reintialise the value of it.
+
+-final is applicable with local var,static var and non static variable.
+
+
+public class demo11
+{
+    final static int marks=700;
+    final float percentage =60.5f;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final String name="pooja";
+		System.out.println(name);
+		name="neha";
+		System.out.println(marks);
+		marks=775;
+		demo11 d1=new demo11();
+		System.out.println(d1.percentage);
+		d1.percentage=66.05f;
+}
+-it is mandatory to intialise final global var during declaration,if we
+did not initialise we will gwt compile time error
+
+    final static int marks;//invalid
+    final float percentage ;//invalid
+
+diff between static and final
+---------------------------------
+       static                         final
+-------------------------------------------------------------------------
+1.static refers to single copy       1.final refers to fixed copy.
+
+2.static keyword is applicable       2.final keyword is applicable 
+  with global variable,methods         with class,method and variable
+  nestedclass and blocks
+
+3.static variable can be reinitialised 3.final var cannot be reinitialise
+
+4.it is not mandatory to initialise   4.it is mandatory to initialise final
+  static during declaration             during declaration
+
+5.Ex:static String clg="QSpiders"     5.Ex:final float pie=3.214f;
+
+final with class
+------------------
+-If a class is declared as final we cannot inherit it.
+
+-Is-A relation ship is not applicable for final classes.
+
+final  class A
+{
+	
+}
+ class B extends A
+{
+	
+}
+
+-Final class can inherit non final class
+
+ class A
+{
+	
+}
+final class B extends A
+{
+	
+}
+-i.e super class cannot be final but sub class can be final.
+
+final with a method
+--------------------
+-if a method is declared as final we cannot override it .
+  class Amazon
+{
+ 	final public void logo()
+ 	  {
+ 		  
+ 	  }
+}
+ class Flipkart extends Amazon
+{
+	   final public void logo())
+	   {
+		   
+	   }
+}
+
+can we inherit final methods?
+A.Yes, we can inherit final methods but we cannot override it.
+
+public class demo11
+{
+public static void main(String[] args) {
+		Flipkart f1=new Flipkart();
+		f1.logo();
+		
+}}
+  class Amazon
+{
+ 	final public void logo()
+ 	  {
+ 		  System.out.println("amazon logo");
+ 	  }
+}
+ class Flipkart extends Amazon
+{
+	   
+}
+
+Note:
+-we can have more than one non access modifier for a method or variable.
+-All final methods can be static but all static methods cannot be final.
+
+        public static final void resultsOfSSC()//final & static coz no possibilityof changing
+        public static void  resultsOffirstSem()//static there is possibility to change
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,275 @@
+-We will discuss leapyear and sum of even number programs shortly
+
+
+-Every Program consists of 2 things
+1.Data------------>variables
+
+2.OPerations------>Methods
+
+Methods
+--------
+-A set of java statements which is enclosed within curly braces having a declartion
+and which gets executed whenever we call it is called as method.
+
+ Syntax:   AccessModifier NonAccessmodifier returntype methodname(Arguments)
+               {
+
+                      //Set of statements//
+ 
+                }
+ Accessmodifier NonAccessModifier returntype-------->Method Header
+ 
+ Methodname(arguments)------------->Method signature
+
+ {
+
+   //set of stmts//------------------->Method implementation or method body 
+  }
+
+-Use of methods
+----------------
+-It is not recommended to write a buisness logic directly in class.
+-So java says for such situation make use of methods.
+For Ex:   (Not Recommended)
+         class ATM
+         {
+           System.out.println("Withdrawl money");
+          }
+           (REcommended)
+          class ATM
+          {
+             public static void Withdrawl()
+             {
+                  System.out.println("enter amount to withdrawl");
+             }
+           }
+
+AccessModifier
+---------------
+-In java We have 4 access modifier---------->public,private,protected 
+and default
+public static void run()
+private static void run()
+protected static void run()
+static void run()//default
+Non Access Modifiers
+--------------------
+-In java We have 2 non access modifiers and they are
+ static and non static
+public static void run()//static
+public  void run()//non static
+
+Important Points
+------------------
+-Methods are used to performed some specific task.
+-method will be consisting of method header and method signature
+-method should be declare within scope of class
+-within one class any number of methods we can write
+-A method will be executed only when we call it.
+-we can call a method with help of method signature
+-A method can be called any number of times depending on our requirement
+-One method cannot be written in another method,it can only be called
+  Ex: public static void fly()
+      {
+           pubblic static void air()
+          {
+           }
+        }
+ -Above example is invalid 
+-Ex2: public static void fly()
+      {   air();
+      }
+      public static void air()
+      {
+      }
+-Above is valid example.
+-The main advantage of using method is reusability,i.e once we created method
+ how many times we want we can execute it.
+
+-program for practising
+---------------------------
+1.WAP for Book application to demonstrate usage of methods
+2.WAP for car application to  demonstrate usage of methods
+3.WAP for Account details of facebook user demonstrate usage of methods
+
+
+
+
+
+
+
+
+
+
+
+
+METHODS WITH SOME INPUT
+-----------------------
+-A method can have any number of inputs in the form of arguments.
+
+-Ex: public static void add()//method with zero argument Or input
+     public static void add(int i)//method with integer argument 
+
+-When we call any method with argument we have to pass that particular type
+ of values.
+
+-While passing arguments we have to make sure it will be as per sequence 
+ define in method declaration.
+Assignment
+----------
+class APP
+{
+   public static void registration(String name,String dob,
+                                   int age,char gender,long contact,String city){
+   //print the registeredinformation//
+  }
+   public statc void main(String args[])
+       {
+         //call registeration() 3 times for 3 different persons
+       }
+Expected output
+----------------
+Name : john
+DOB  : 1-1-2001
+Age  : 20
+Gender: M
+Contact:9898989898
+City:Hyderabad
+
+should print above info for 2 more people
+
+METHOD WITH RETURN TYPE
+------------------------
+-If we want we can define a method with any specific return type.
+
+for ex: public static int add()
+        {
+          //perform operation whatever we want//
+             return integertypevalue;
+         }
+
+-Whenever we define a method with return type ,we are telling that my method
+is going to return that particular type of data(value).
+
+-It is mandatory to write return statement if we have a method with specific
+ return type
+
+return keyword
+--------------
+-It is used inside a method whenever we define a method with specific reurn type
+
+-return keyword is used to take data and exit from method
+
+-return keyword must be last statement in a method
+
+-return keyword will not print the data.
+
+-we cannot write more than one return statement in a method
+
+Programs
+----------
+1.Create an APP  which includes the method as
+ public static boolean login(String username,int password)
+ {
+
+   //Validate username and password//
+}
+WOrk: if username is Qspiders and password is 1234 return true
+----- if anyother username is provided or password is provided return false
+
+
+2.Create an APP which calculates 
+  area of triangle
+  area of circle
+  area of rectangle
+  area of square
+-public static float areaOfTri(int breadth,int height)
+ {
+   //formula:  1/2 * breadth * height;
+}
+public static float areaOfCircle(int radius)
+ {
+    float radius=3.214f;
+   //formula:  pie * radius * radius;
+}
+public static int areaOfRect(int breadth,int length)
+ {
+   //formula:  lenght * breadth;
+}
+public static int areaOfSquare(int side)
+ {
+   //formula:  side * side;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

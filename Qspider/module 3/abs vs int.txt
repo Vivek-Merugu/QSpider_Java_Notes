@@ -1,0 +1,56 @@
+***  Difference Between Abstract class and Interface
+--------------------------------------------------
+- abstract class A                     - interface A
+  {                                      {
+
+                                          
+   }                                     }
+
+-class keyword must be preceeded       -interfacename must be preceeded
+  with abstract keyword                 with interface keyword
+
+-abstract class can have complete     -Interface methods are by default 
+ as well as incomplete methods          abstract
+
+-In abstract class we can have        -In interface all variables are by
+  public,privte,protected,static       default static public and final
+  non static,final and nonfinal
+  variables
+
+-Constructors are allowed in          -constructors are not allowed
+ abstract class
+
+-Using abstract class we can          -Using interface we can achieve 100%
+ achieve 0 - 100% abstraction           abstraction
+          
+A class can extend only one           -A class can implement multiple interfaces
+abstarct class                          at a time.
+ at a time                               interface A{}
+abstract class A{}                       interface B{}
+abstract class B{}
+class C extends (either A or B)          class C implements A,B
+
+-Using Abstarct class we cannot        -using interface we can achieve 
+achieve multiple inheritance              Multiple inheritance.
+-We go for abstract classes when          -We go for interface when we only
+  we knows partial implementation         knows the specification but not implementation
+  
+  Ex: abstract class EMP                    EX:interface EMP
+   {                                           {
+          public void getsal()                     void getsal();
+          {                                        void getincetives();
+            SOP("CAL per  Annum");             }
+          }
+          abstract p v getincentives();
+   }
+
+Advantages
+------------
+
+-We can achieve 100% abstraction.
+-It makes complex design into simple form.
+-Achieve multiple inheritance.
+
+
+
+ 

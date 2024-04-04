@@ -1,0 +1,234 @@
+Question-2):Write a program and algorithm to print the below output.
+------------
+ALGORITHM:
+----------
+Step-1: Define static variables celsius,fahrenheit
+Step-2: write the main method and initialize celsius =0
+Step-3: define for loop and initialize & give sno<=11
+Step-4: fahrenheit=32+(celsius*9/5),celsius=celsius+10.
+PROGRAM:
+---------
+package vineethmodule3;
+
+public class Sample 
+{
+  static int celsius,fahrenheit;
+    public static void main(String[] args) 
+    { 
+      celsius = 0;
+       System.out.println("s.no     Temperature(celsius)     Temperature(fahrenheit)" );
+	for(int sno=1;sno<=11;sno++)
+	{
+	  fahrenheit=32+(celsius*9/5);
+          System.out.println(sno+"                    "+celsius+"                       "+fahrenheit);
+          celsius = celsius + 10;
+        }
+		   
+		 
+    }
+}
+OUTPUT:
+-------
+s.no     Temperature(celsius)     Temperature(fahrenheit)
+1                    0                        32
+2                    10                       50
+3                    20                       68
+4                    30                       86
+5                    40                       104
+6                    50                       122
+7                    60                       140
+8                    70                       158
+9                    80                       176
+10                   90                       194
+11                   100                      212
+------------------------------------------------------------------------------------------------------------------------------------------
+Question-3):Write a program and algorithm for accepting two numbers and divide the 
+            first number by second number and display their quotient.
+Algorithm:
+----------
+Step-1): write import statement for Scanner class
+Step-2): create Scanner class object
+Step-3): enter two numbers for i,j
+Step-4): define a seperate variable k and store i/j
+Step-5): Print the value of k
+
+Program:
+--------
+package vineethmodule3;
+import java.util.Scanner;
+public class Sample 
+{
+    public static void main(String[] args) 
+    { 
+      Scanner s=new Scanner(System.in);
+      System.out.println("Enter the number i=");
+      int i=s.nextInt();
+      System.out.println("Enter the number j=");
+      int j=s.nextInt();
+      double k=i/j;
+      System.out.println("The quotient of given numbers is:"+k);
+     }
+}
+Output:
+-------
+Enter the number i=
+2000
+Enter the number j=
+3
+The quotient of given numbers is:666.0
+----------------------------------------------------------------------------------------------
+Question-4): Write an algorithm and java program for accepting distance in kilometers,
+             convert it into meters and display the result.
+Algorithm:
+---------
+Step-1): Write import statement for Scanner 
+Step-2): Create an object of Scanner class
+Step-3): Enter the value of i
+Step-4): Define a variable k and store i*1000
+Step-5): Print the value of k
+
+Program
+--------
+package vineethmodule3;
+import java.util.Scanner;
+public class Sample 
+{
+    public static void main(String[] args) 
+    { 
+      Scanner s=new Scanner(System.in);
+      System.out.println("Enter the distance in Kilometers:");
+      double i=s.nextDouble();
+      double j=i*1000;
+      int k=(int)j;//this extra step i had written to convert into int 
+      System.out.println("The Distance in Meters is:"+k);
+     }
+}
+Output:
+-------
+Enter the distance in Kilometers:
+1.5
+The Distance in Meters is:1500
+------------------------------------------------------------------------------------------
+Question-5): Write an algorithm and java program for accepting five numbers and display
+             the sum and average of the numbers.
+Algorithm:
+----------
+Step-1): Write import statement for Scanner
+Step-2): Create an object of Scanner class
+Step-3): Enter five numbers and store them seperately
+Step-4): Sum=num1+num2+num3+num4+num5,
+         Avg=(num1+num2+num3+num4+num5)/5
+Step-5): print the values of sum&avg
+Program:
+--------
+package vineethmodule3;
+import java.util.Scanner;
+public class Sample 
+{
+	
+    public static void main(String[] args) 
+    { 
+      Scanner s=new Scanner(System.in);
+      System.out.println("Enter the First number:");
+      int num1=s.nextInt();
+      System.out.println("Enter the Second number:");
+      int num2=s.nextInt();
+      System.out.println("Enter the Third number:");
+      int num3=s.nextInt();
+      System.out.println("Enter the Fourth number:");
+      int num4=s.nextInt();
+      System.out.println("Enter the Fifth number:");
+      int num5=s.nextInt();
+      int sum=num1+num2+num3+num4+num5;
+      int avg=sum/5;
+      System.out.println("The sum of Numbers is:"+sum);
+      System.out.println("The Average of Numbers is:"+avg);
+		
+     }
+}
+Output:
+-------
+Enter the First number:
+20
+Enter the Second number:
+30
+Enter the Third number:
+40
+Enter the Fourth number:
+50
+Enter the Fifth number:
+60
+The sum of Numbers is:200
+The Average of Numbers is:40
+---------------------------------------------------------------------------------
+Question-6): Write a program which accepts an integer number as input from the user
+             and perform the following conditional checks:
+             a) Print Tom if the number is odd and exists between 20 & 30.
+             b)Print jerry,if the number is even and exists between 20 & 30.
+
+Program:
+--------
+package vineethmodule3;
+import java.util.Scanner;
+public class Sample 
+{	
+  public static void main(String[] args) 
+  { 
+    Scanner s=new Scanner(System.in);
+    System.out.println("Enter the number:");
+    int i=s.nextInt();
+	 if(i%2!=0)
+	 {
+	    if(i>=20 && i<=30)
+	    {
+		 System.out.println("Tom");//number is odd and between 20-30
+	    }
+            else
+            {
+	      System.out.println("The number is odd but not in between 20-30");
+	    }
+			 
+	  }
+	      else if(i>=20 && i<=30)
+	      {
+		 System.out.println("Jerry");//number is even and between 20-30
+	      }
+	   else
+	   {
+	     System.out.println("The number is even but not in between 20-30");
+	   }
+		 
+		
+       }
+}
+Output:
+--------
+Enter the number:
+21
+Tom
+------------------------------------------------------------------------------------------
+Question-7): Write a program using a loop to print the following output 1 2 2 3 3 3 4 4 4 4 
+             input: 5
+             output: 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 
+Program:
+--------
+package vineethmodule3;
+
+public class Sample 
+{
+   public static void main(String[] args) 
+   { 
+     int n=5;
+      for(int i=1;i<=n;i++)
+      {
+        for(int j=1;j<=i;j++)
+	{
+	   System.out.print(i+" "); 
+        }	 
+      }
+		
+    }
+}
+Output:
+-------
+1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 

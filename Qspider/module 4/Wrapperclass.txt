@@ -1,0 +1,177 @@
+wrapper classes:-
+------------------
+-In order to represent primitive datatype as an object we use  wrapperclasses
+
+-For every primitive data type there is a corresponding wrapper class
+ available in java.
+
+-Since java is 100 % object oriented we have to represent everything as object
+
+-therefore to represent primitive datatype as object we use wrapper classes.
+
+primitive
+datatype            wrapperclass
+----------------------------------
+byte                 Byte
+boolean              Boolean
+char                 Character                   
+short                Short
+float                Float
+int                  Integer
+double                Double
+long                  Long
+
+-All wrapper classes are final classes.
+-All wrapper classes are present in java.lang package.
+-Examples
+----------
+int a=100;//primitive data type
+Integer a=new Integer(100);        or Integer a=100;//Objects
+
+double d=22.45;//primitive data type
+Double d=new Double(222.45);      0r Double d=445.5;//Objects
+
+
+
+Constructors
+---------------
+Integer a=new Integer(int);
+Integer a1=new Integer(String);
+byte b1=new Byte(byte);
+byte b2=new Byte(String);
+...................
+  ...................
+  
+-In all Wrapper classes toString() is overridden(defaultly) and it prints value of object
+ not complete info of object.
+
+  Integer a=new Integer(100);
+  System.out.println(a.toString());//100
+  System.out.println(a);//100
+
+-Using Wrapper classes we can perform boxing and Unboxing.
+-Boxing
+-------
+-The process of converting primitive type into Wrapperclass is called as Boxing.
+-Boxing can be performed by using valueOf()
+
+Ex:  int a=990;
+     Integer i=Integer.valueOf(a);
+
+public class Wrap1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        int a=300;
+	Integer box=Integer.valueOf(a);
+	   System.out.println(box.toString());
+	
+}}
+-UnBoxing
+---------
+-The process of converting Wrapperclass into primitive type is called as UnBoxing.
+-UnBoxing can be performed by using xxxvalue()(xxx--->primitivedatatype)
+
+For Ex: Integer i=100;
+        int a=i.intValue();
+        Double d=22.23;
+        double a2=d.doubleValue();
+
+public class Wrap2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Integer i=new Integer(100);
+		
+        int a=i.intValue();
+        
+        
+        System.out.println(a);
+	}
+
+}
+
+
+Note 
+-----
+From 1.5 version of java we can perform boxing and Unboxing directly so they are
+       reffered as autoboxing and autounboxing respectively. 
+   Ex:  int i=100;
+        Integer a=i;///Autoboxing
+
+  Ex:  Integer i=122;
+       int k=i;//AutoUnboxing
+
+public class Wrap3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Auoboxing
+       int a=100;
+       Integer i=a;
+       System.out.println(i.toString());
+       //AutoUnboxing
+       Integer j=300;
+       int k=j;
+       System.out.println(k);
+	}
+
+}
+
+parse()
+--------
+-It is a method of Wrapper class it converts the string data into int ,double or float.
+-But will work only if string holds proper data other wise we will get NumberFormatException 
+
+  For Ex:
+          String s="123";String s1="223.33";
+          int i=Integer.parseInt(s);//Converts string into integer
+          double d=Double.parseDouble(s1);//converst string to double
+          System.out.println(i+d);//123+223.33
+
+public class Wrap4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="123";String s1="223.33";
+        int i=Integer.parseInt(s);//Converts string into integer
+        double d=Double.parseDouble(s1);//converst string to double
+        
+        
+        System.out.println(s+s1);//123223.33
+        System.out.println(i+d);//123+223.33
+
+	}
+
+}
+
+Q>There are two inputs of String type we need to add them and result should be a sum
+A.Using parse()
+
+Topics to have idea before learning collection
+------------------------------------------------
+1.Wrapper classes
+2.Upcasting and downcasting
+3.toString()
+4.boxing and Unboxing
+5.Interface
+6.for each loop
+7.Import keyword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
